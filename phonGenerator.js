@@ -1,5 +1,8 @@
+let selected = []
+
 function handleClick(event) {
   console.log(event)
+  wordList(4,['a'], ['k'], 3)
 }
 
 /* var vowels = {
