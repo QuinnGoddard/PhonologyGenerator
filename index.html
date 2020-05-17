@@ -16,7 +16,12 @@
   <button onclick="handleClick(event)">"o"</button>
   <button onclick="handleClick(event)">"u"</button>
   
-  <button onclick="console.log(makeWord(["a","i","o"], ["k", "p", "b"], 5))">"Run"</button>
+  <p id="wordList"></p>
+  <script>
+    document.getElementById("wordList").innerHTML = makeWord(["a"], ["k"], 3);
+  </script>
+  
+  <button>"Run"</button>
 
 </body>
 </html>
