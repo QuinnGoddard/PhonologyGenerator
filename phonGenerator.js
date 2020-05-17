@@ -8,6 +8,7 @@ function handleClick(event) {
 }
 
 function run(event) {
+  console.log("pressed")
   wordList(4, Array.from(selected), ['k'], 3)
 }
 
