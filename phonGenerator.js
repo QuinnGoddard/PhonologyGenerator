@@ -7,7 +7,7 @@ function handleClick(event) {
 }
 
 function run(event) {
-  wordList(4,selected, ['k'], 3)
+  wordList(4, Array.from(selected), ['k'], 3)
 }
 
 /* var vowels = {
