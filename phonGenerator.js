@@ -35,6 +35,7 @@ var consonants = {
 
 function makeWord(selectV, selectC, length) {
     var phonemes = selectV.concat(selectC);
+    console.log("makeWord:", selectV, selectC, length)
     let word = "";
     let phone = "";
     for (let i = 0; i < length; i++) {
