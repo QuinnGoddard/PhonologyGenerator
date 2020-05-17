@@ -42,5 +42,5 @@ function wordList(n, selectV, selectC, length) {
     word = makeWord(selectV, selectC, length);
     wordList.push(word);
   }
-  print wordList;
+  return wordList;
 }
