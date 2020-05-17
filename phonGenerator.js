@@ -16,7 +16,7 @@ function handleConsClick(event) {
 function run(event) {
   var listLength = document.getElementById("numWords").value
   var length = document.getElementById("wordlength").value
-  var syll = document.getElementByName("syllable").value
+  var syll = document.getElementById("syllable").value
   wordList(listLength, Array.from(selectedV), Array.from(selectedC), length, syll)
 }
 
