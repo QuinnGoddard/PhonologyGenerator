@@ -16,7 +16,13 @@ function handleConsClick(event) {
 function run(event) {
   var listLength = document.getElementById("numWords").value
   var length = document.getElementById("wordlength").value
-  var syll = document.getElementById("syllable").value
+  let syll = ""
+  var coda = document.getElementById("coda").value
+  if (coda) {
+    syll = "CVC"
+  } else {
+    syll = "CV"
+  }
   wordList(listLength, Array.from(selectedV), Array.from(selectedC), length, syll)
 }
 
@@ -78,7 +84,7 @@ function makeSyll(syll, c, v) {
     selectV: array of selected vowels
     selectC: array of selected consonants
     length: length of word (number of phonemes in word)
-    syll: syllable structure (either CV, CVC, or CCVCC)
+    syll: CV or CVC
 */
 function makeWord(selectV, selectC, length, syll) {
     //var phonemes = selectV.concat(selectC);
