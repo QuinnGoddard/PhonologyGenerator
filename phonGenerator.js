@@ -12,8 +12,8 @@ function handleConsClick(event) {
 }
 
 function run(event) {
-  console.log("pressed")
-  wordList(4, Array.from(selectedV), Array.from(selectedC), 3)
+  var length = document.getElementById("length").value
+  wordList(4, Array.from(selectedV), Array.from(selectedC), length)
 }
 
 /* var vowels = {
