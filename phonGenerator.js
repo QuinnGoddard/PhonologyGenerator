@@ -56,10 +56,10 @@ function randomPhone(phones) {
 */
 function makeSyll(syll, c, v) {
     let syllable = ""
-    if syll == "CV" {
+    if (syll == "CV") {
        syllable += randomPhone(c)
        syllable += randomPhone(v)
-    } else if syll == "CVC" {
+    } else if (syll == "CVC") {
        syllable += randomPhone(c)
        syllable += randomPhone(v)
        syllable += randomPhone(c)
@@ -86,8 +86,8 @@ function makeWord(selectV, selectC, length, syll) {
     let phone = ""
     
     // make a word with (C)V syllables
-    if syll == "CV" {
-      if length%2 == 0 {
+    if (syll == "CV") {
+      if (length%2 == 0) {
         for (let i = 0; i < length/2; i++) {
           word+=makeSyll("CV")
         }
@@ -98,13 +98,13 @@ function makeWord(selectV, selectC, length, syll) {
         }
       }
     // make a word with CVC syllables
-    } else if syll == "CVC" {
-      if length%3 == 0 {
+    } else if (syll == "CVC") {
+      if (length%3 == 0) {
         for (let i = 0; i < length/3; i++) {
           word+=makeSyll("CVC")
         }
       // if not divisible by 3, initial syllable is V
-      } else if length%3 == 1 {
+      } else if (length%3 == 1) {
         word += randomPhone(selectV)
         for (let i = 0; i < length/3; i++) {
           word+=makeSyll("CVC")
