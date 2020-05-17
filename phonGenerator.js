@@ -4,6 +4,7 @@ function handleClick(event) {
   console.log(event)
   selected.add(event.target.value)
   console.log(selected)
+  document.getElementById("selections").innerHTML = Array.from(selected)
 }
 
 function run(event) {
