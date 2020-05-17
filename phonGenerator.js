@@ -1,10 +1,14 @@
-let selected = new Set()
+let selectedV = new Set()
+let selectedC = new Set()
 
-function handleClick(event) {
-  console.log(event)
-  selected.add(event.target.value)
-  console.log(selected)
-  document.getElementById("selections").innerHTML = Array.from(selected)
+function handleVowelClick(event) {
+  selectedV.add(event.target.value)
+  document.getElementById("vSelection").innerHTML = Array.from(selectedV)
+}
+
+function handleConsClick(event) {
+  selectedC.add(event.target.value)
+  document.getElementById("cSelection").innerHTML = Array.from(selectedC)
 }
 
 function run(event) {
