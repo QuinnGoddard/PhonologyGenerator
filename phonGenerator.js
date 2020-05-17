@@ -34,3 +34,13 @@ function makeWord(selectV, selectC, length) {
       };
     return word;      
 }
+
+function wordList(n, selectV, selectC, length) {
+  var wordList = [];
+  let word = "";
+  for (let i = 0; i < n; i++) {
+    word = makeWord(selectV, selectC, length);
+    wordList.push(word);
+  }
+  print wordList;
+}
