@@ -2,25 +2,25 @@ function handleClick(event) {
   console.log(event)
 }
 
-var vowels = {
-    "a": ["low"],
-    "i": ["high"],
-    "o": ["mid", "round"],
-    "u": ["high", "round"],
-    "e": ["mid"],
-    "y": ["high", "round"]
-};
+#var vowels = {
+#    "a": ["low"],
+#    "i": ["high"],
+#    "o": ["mid", "round"],
+#    "u": ["high", "round"],
+#    "e": ["mid"],
+#    "y": ["high", "round"]
+#};
 
-var consonants = {
-    "k": ["velar", "stop"],
-    "g": ["velar", "voiced", "stop"],
-    "p": ["bilabial","stop"],
-    "b": ["bilabial", "voiced","stop"],
-    "t": ["alveolar", "stop"],
-    "d": ["alveolar", "voiced","stop"]
-    "s": ["alveolar", "fricative"],
-    "z": ["alveolar", "voiced","fricative"]
-};
+#var consonants = {
+#    "k": ["velar", "stop"],
+#    "g": ["velar", "voiced", "stop"],
+#    "p": ["bilabial","stop"],
+#    "b": ["bilabial", "voiced","stop"],
+#    "t": ["alveolar", "stop"],
+#    "d": ["alveolar", "voiced","stop"]
+#    "s": ["alveolar", "fricative"],
+#    "z": ["alveolar", "voiced","fricative"]
+#};
 
 
 function makeWord(selectV, selectC, length) {
