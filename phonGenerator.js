@@ -42,5 +42,8 @@ function wordList(n, selectV, selectC, length) {
     word = makeWord(selectV, selectC, length);
     wordList.push(word);
   }
-  return wordList;
+  for (let i = 0; i < wordList.length; i++) {
+    document.getElementByID(list).innerHTML = wordList[i];
+  }
 }
+
