@@ -1,8 +1,8 @@
-let selected = []
+let selected = new Set()
 
 function handleClick(event) {
   console.log(event)
-  selected.push(event.target.value)
+  selected.add(event.target.value)
   console.log(selected)
 }
 
