@@ -50,6 +50,7 @@ function wordList(n, selectV, selectC, length) {
   let word = "";
   for (let i = 0; i < n; i++) {
     word = makeWord(selectV, selectC, length);
+    console.log(word)
     wordList.push(word);
   }
   let listHTML = ""
