@@ -12,8 +12,9 @@ function handleConsClick(event) {
 }
 
 function run(event) {
-  var length = document.getElementById("length").value
-  wordList(4, Array.from(selectedV), Array.from(selectedC), length)
+  var listLength = document.getElementById("numWords").value
+  var length = document.getElementById("wordlength").value
+  wordList(listLength, Array.from(selectedV), Array.from(selectedC), length)
 }
 
 /* var vowels = {
