@@ -40,8 +40,8 @@ function makeWord(selectV, selectC, length) {
     for (let i = 0; i < length; i++) {
       let num = Math.floor((Math.random() * phonemes.length-1) +0);
       phone = phonemes.indexOf(num);
-      word.concat(phone);     
-      };
+      word += phone;     
+    };
     return word;      
 }
 
