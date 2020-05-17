@@ -13,7 +13,7 @@ function handleConsClick(event) {
 
 function run(event) {
   console.log("pressed")
-  wordList(4, Array.from(selected), ['k'], 3)
+  wordList(4, Array.from(selectedV), Array.from(selectedC), 3)
 }
 
 /* var vowels = {
