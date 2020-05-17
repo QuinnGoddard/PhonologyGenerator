@@ -39,7 +39,7 @@ function makeWord(selectV, selectC, length) {
     let word = "";
     let phone = "";
     for (let i = 0; i < length; i++) {
-      let num = Math.floor((Math.random() * phonemes.length)
+      let num = Math.floor((Math.random() * phonemes.length))
       console.log("num", num)
       phone = phonemes[num];
       word += phone;     
