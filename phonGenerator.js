@@ -2,6 +2,8 @@ let selected = []
 
 function handleClick(event) {
   console.log(event)
+  selected.push(event.target.value)
+  console.log(selected)
   wordList(4,['a'], ['k'], 3)
 }
 
