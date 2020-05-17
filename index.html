@@ -10,20 +10,35 @@
   <script src="phonGenerator.js"></script>
   <h2>PHONOLOGY GENERATOR</h2>
   
-  <button onclick="handleClick(event)" value="a">a</button>
-  <button onclick="handleClick(event)" value="ɑ">ɑ</button> 
-  <button onclick="handleClick(event)" value="æ">æ</button>  
-  <button onclick="handleClick(event)" value="e">e</button>  
-  <button onclick="handleClick(event)" value="i">i</button>
-  <button onclick="handleClick(event)" value="ɪ">ɪ</button>
-  <button onclick="handleClick(event)" value="o">o</button>
-  <button onclick="handleClick(event)" value="u">u</button>
-  <button onclick="handleClick(event)" value="y">y</button>
-  <button onclick="handleClick(event)" value="ɛ">ɛ</button>
+  <b>Select some vowels</b>
+  <button onclick="handleVowelClick(event)" value="a">a</button>
+  <button onclick="handleVowelClick(event)" value="ɑ">ɑ</button> 
+  <button onclick="handleVowelClick(event)" value="æ">æ</button>  
+  <button onclick="handleVowelClick(event)" value="e">e</button>  
+  <button onclick="handleVowelClick(event)" value="i">i</button>
+  <button onclick="handleVowelClick(event)" value="ɪ">ɪ</button>
+  <button onclick="handleVowelClick(event)" value="o">o</button>
+  <button onclick="handleVowelClick(event)" value="u">u</button>
+  <button onclick="handleVowelClick(event)" value="y">y</button>
+  <button onclick="handleVowelClick(event)" value="ɛ">ɛ</button>
   
+   <b>Select some consonants</b>
+  <button onclick="handleConsClick(event)" value="p">p</button>
+  <button onclick="handleConsClick(event)" value="b">b</button> 
+  <button onclick="handleConsClick(event)" value="t">t</button>  
+  <button onclick="handleConsClick(event)" value="d">d</button>  
+  <button onclick="handleConsClick(event)" value="c">c</button>
+  <button onclick="handleConsClick(event)" value="k">k</button>
+  <button onclick="handleConsClick(event)" value="g">g</button>
+  <button onclick="handleConsClick(event)" value="h">h</button>
+  <button onclick="handleConsClick(event)" value="s">s</button>
+  <button onclick="handleConsClick(event)" value="z">z</button>
+   
+  <p>Selected Vowels</p>
+  <p id="vSelection"></p>
   
-  <p>Selections</p>
-  <p id="selections"></p>
+  <p>Selected Consonants</p>
+  <p id="cSelection"></p>
 
   <button onclick="run(event)">RUN</button>
 
