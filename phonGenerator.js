@@ -4,7 +4,10 @@ function handleClick(event) {
   console.log(event)
   selected.push(event.target.value)
   console.log(selected)
-  wordList(4,['a'], ['k'], 3)
+}
+
+function run(event) {
+  wordList(4,selected, ['k'], 3)
 }
 
 /* var vowels = {
