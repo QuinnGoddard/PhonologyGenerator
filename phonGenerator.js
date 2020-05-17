@@ -46,7 +46,7 @@ function wordList(n, selectV, selectC, length) {
   for (let i = 0; i < wordList.length; i++) {
     listHTML += wordList[i] + "<br>"
   }
-  document.getElementByID("list").innerHTML = listHTML
+  document.getElementById("list").innerHTML = listHTML
 
 }
 
