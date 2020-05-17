@@ -40,6 +40,7 @@ function makeWord(selectV, selectC, length) {
     let phone = "";
     for (let i = 0; i < length; i++) {
       let num = Math.floor((Math.random() * phonemes.length-1) +0);
+      console.log("num", num)
       phone = phonemes.indexOf(num);
       word += phone;     
     };
