@@ -9,19 +9,20 @@
 <body>
   <script src="phonGenerator.js"></script>
   <h2>PHONOLOGY GENERATOR</h2>
+  
   <button onclick="handleClick(event)">"a"</button>
   <button onclick="handleClick(event)">"e"</button>
   <button onclick="handleClick(event)">"i"</button>
   <button onclick="handleClick(event)">"y"</button>
   <button onclick="handleClick(event)">"o"</button>
   <button onclick="handleClick(event)">"u"</button>
-  
+
+
   <p id="wordList"></p>
   <script>
-    document.getElementById("wordList").innerHTML = makeWord(["a"], ["k"], 3);
+    document.write('Word list: $' + wordList(["a"], ["k"], 3));    
   </script>
   
-  <button>"Run"</button>
 
 </body>
 </html>
