@@ -71,14 +71,16 @@ var consonants = {
     initVowel: first vowel in the word whose properties subsequent vowels must match
 */
 function harmonicVowels(harmType, v, initVowel) {
-    if (harmType == "front") {
-      
-    } else if (harmType=="height") {
-      
-    } else {
-      
+    // sets feature that other vowels filtered by
+    let feature = initVowel.harmType
+    let harmVowels = new Set()
+    for (let i = 0, i < v.length, i++) {
+      // ex. if VOWEL.front == "front"
+      if (v[i].harmType == feature) {
+          v.add(v[i].label)
+      } 
     }
-  
+    return harmVowels   
 }
 
 
