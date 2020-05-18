@@ -60,7 +60,7 @@ function randomPhone(phones) {
 }
 
 /* Make a syllable according to desired structure 
-    syll: desired syllable structure (V, CV, CVC, CCVCC)
+    syll: desired syllable structure (CV, CVC, CCVCC)
     c: set of consonants
     v: set of vowels
 */
