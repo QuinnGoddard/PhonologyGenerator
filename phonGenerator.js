@@ -124,7 +124,7 @@ function makeWord(selectV, selectC, length, syll, harm) {
     let initVowel = ""
     let workingVowels = []
     
-    if harm != "none" {
+    if (harm != "none") {
       initVowel = randomPhone(selectV)
       workingVowels = harmonicVowels(harm, selectV, initVowel)
     } else {
