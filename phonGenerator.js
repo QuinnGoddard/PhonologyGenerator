@@ -139,9 +139,10 @@ function makeSyll(syll, c, v, nasal, palatalization) {
         syllable += vowels[nucleus].nasal
      } else {
         syllable += nucleus
-     }
-    } if (syll == "CVC") {
-      // add coda if CVC structure
+    }
+  
+    // add coda if CVC structure
+    if (syll == "CVC") {
        syllable += randomPhone(c)
     }
     return syllable
