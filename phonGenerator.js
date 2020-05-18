@@ -47,7 +47,7 @@ function run(event) {
   if (document.getElementById("palatalization").checked) {
     palatalization = "palatalization"
   } 
-  wordList(listLength, Array.from(selectedV), Array.from(selectedC), length, syll, harm, nasal)
+  wordList(listLength, Array.from(selectedV), Array.from(selectedC), length, syll, harm, nasal, palatalization)
 }
 
 
@@ -123,17 +123,20 @@ function randomPhone(phonemes) {
     c: set of consonants
     v: set of vowels
 */
-function makeSyll(syll, c, v, nasal) {
+function makeSyll(syll, c, v, nasal, palatalization) {
     let onset = ""
     let nucleus = ""
     let syllable = ""
     if (syll == "CV") {
         // generate onset
-        onset = randomPhone(c)
-        syllable += onset
-      
+        onset = randomPhone(c)      
         //generate nucleus
         nucleus = randomPhone(v)
+        if (palatalization=="palatalization" && nucleus=="i" && onset=="k") {
+           syllable += "t͡ʃ"
+        } else {
+          syllable += onset
+        }
         if (nasal == "nasal" && consonants[onset].nasal == "nasal") {
           syllable += vowels[nucleus].nasal
         } else {
@@ -159,8 +162,10 @@ function makeSyll(syll, c, v, nasal) {
     selectC: array of selected consonants
     length: length of word (number of phonemes in word)
     syll: CV or CVC
+    nasal: progressive nasal assimilation (none or nasalization)
+    palatalization: none or k > ts/_i
 */
-function makeWord(selectV, selectC, length, syll, harm, nasal) {
+function makeWord(selectV, selectC, length, syll, harm, nasal, palatalization) {
     let word = ""
     let initVowel = ""
     let workingVowels = []
@@ -176,31 +181,31 @@ function makeWord(selectV, selectC, length, syll, harm, nasal) {
     if (syll == "CV") {
       if (length%2 == 0) {
         for (let i = 0; i < length/2; i++) {
-          word+=makeSyll("CV", selectC, workingVowels, nasal)
+          word+=makeSyll("CV", selectC, workingVowels, nasal, palatalization)
         }
       } else {
         word += randomPhone(workingVowels)
         for (let i = 0; i < (length-1)/2; i++) {
-          word+=makeSyll("CV", selectC, workingVowels, nasal)
+          word+=makeSyll("CV", selectC, workingVowels, nasal, palatalization)
         }
       }
     // make a word with CVC syllables
     } else if (syll == "CVC") {
       if (length%3 == 0) {
         for (let i = 0; i < length/3; i++) {
-          word+=makeSyll("CVC", selectC, workingVowels, nasal)
+          word+=makeSyll("CVC", selectC, workingVowels, nasal, palatalization)
         }
       // if not divisible by 3, initial syllable is V
       } else if (length%3 == 1) {
         word += randomPhone(workingVowels)
         for (let i = 0; i < length/3; i++) {
-          word+=makeSyll("CVC", selectC, workingVowels, nasal)
+          word+=makeSyll("CVC", selectC, workingVowels, nasal, palatalization)
         }
       // if not divisible by 3, initial syllable is CV
       } else {
         word+=makeSyll("CV", selectC, workingVowels, nasal)
         for (let i = 0; i < length/3; i++) {
-          word+=makeSyll("CVC", selectC, workingVowels, nasal)
+          word+=makeSyll("CVC", selectC, workingVowels, nasal, palatalization)
         }
       }
     }
@@ -216,11 +221,11 @@ function makeWord(selectV, selectC, length, syll, harm, nasal) {
     harm: vowel harmony (none, front, round, height)
     nasal: none or progressive
 */
-function wordList(n, selectV, selectC, length, syll, harm, nasal) {
+function wordList(n, selectV, selectC, length, syll, harm, nasal, palatalization) {
   var wordList = [];
   let word = "";
   for (let i = 0; i < n; i++) {
-    word = makeWord(selectV, selectC, length, syll, harm, nasal);
+    word = makeWord(selectV, selectC, length, syll, harm, nasal, palatalization);
     wordList.push(word);
   }
   let listHTML = ""
