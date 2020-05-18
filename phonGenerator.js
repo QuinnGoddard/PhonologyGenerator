@@ -54,14 +54,14 @@ function Consonant(label, type, place, voicing, nasality) {
 }
 
 var vowels = [
-    var a = new Vowel("a", "low", "front", "unround"),
-    var i = new Vowel("i", "high", "front", "unround"),
-    var y = new Vowel("y", "high", "front", "round"),
-    var o = new Vowel("o", "mid", "back", "round"),
-    var u = new Vowel("u", "high", "back", "round"),
-    var e = new Vowel("e", "mid", "front", "unround")   
+    var a = new Vowel{label: "a", height: "low", front: "front", round: "unround"},
+    var i = new Vowel{label:"i", height: "high", front: "front", round: "unround"},
+    var y = new Vowel{label:"y", height: "high", front: "front", round: "round"},
+    var o = new Vowel{label:"o", height: "mid", front: "back", round: "round"},
+    var u = new Vowel{label:"u", height: "high",front: "back", round: "round"},
+    var e = new Vowel{label:"e", height: "mid", front:"front", round: "unround"}   
 ];
-
+/*
 var consonants = {
     var k = new Consonant("k", "stop", "velar", "vcls", "oral"],
     var g = new Consonant("g", "stop", "velar", "vcd","oral"],
@@ -74,7 +74,7 @@ var consonants = {
     var s = new Consonant("s", "fricative", "alveolar", "vcls", "oral"],
     var z = new Consonant("z", "fricative", "alveolar", "vcd", "oral"],
 };
-
+*/
 /* Returns array of vowels which harmonize
     harmType: type of vowel harmony (front, round, height)
     v: list of vowels selected by user
