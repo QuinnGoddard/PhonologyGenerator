@@ -1,5 +1,6 @@
 let selectedV = new Set()
 let selectedC = new Set()
+let coda = 0
 
 // Generate list of selected vowels
 function handleVowelClick(event) {
@@ -13,11 +14,14 @@ function handleConsClick(event) {
   document.getElementById("cSelection").innerHTML = Array.from(selectedC)
 }
 
+function handleCodaClick(event) {
+  coda = 1
+}
+
 function run(event) {
   var listLength = document.getElementById("numWords").value
   var length = document.getElementById("wordlength").value
   let syll = ""
-  var coda = document.getElementById("coda").value
   if (coda) {
     syll = "CVC"
   } else {
