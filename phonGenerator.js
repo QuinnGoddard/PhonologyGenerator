@@ -36,34 +36,19 @@ function run(event) {
   wordList(listLength, Array.from(selectedV), Array.from(selectedC), length, syll, harm)
 }
 
-// Constructor for vowels
-function Vowel(label, height, front, round) {
-    this.label = label;
-    this.height = height;
-    this.front = front;
-    this.round = round;
+
+const vowels = {
+  a: { label: "a", height: "low", front: "front", round: "unround" },
+  i: { label:"i", height: "high", front: "front", round: "unround" },
+  y: { label:"y", height: "high", front: "front", round: "round" },
+  o: { label:"o", height: "mid", front: "back", round: "round" },
+  u: { label:"u", height: "high",front: "back", round: "round" },
+  e: { label:"e", height: "mid", front:"front", round: "unround" }  
 }
 
-// Constructor for consonants
-function Consonant(label, type, place, voicing, nasality) {
-    this.label = label;
-    this.type = type;
-    this.place = place;
-    this.voicing = voicing;
-    this.nasality = nasality;
-}
-
-var vowels = [
-    var a = new Vowel{label: "a", height: "low", front: "front", round: "unround"},
-    var i = new Vowel{label:"i", height: "high", front: "front", round: "unround"},
-    var y = new Vowel{label:"y", height: "high", front: "front", round: "round"},
-    var o = new Vowel{label:"o", height: "mid", front: "back", round: "round"},
-    var u = new Vowel{label:"u", height: "high",front: "back", round: "round"},
-    var e = new Vowel{label:"e", height: "mid", front:"front", round: "unround"}   
-];
 /*
-var consonants = {
-    var k = new Consonant("k", "stop", "velar", "vcls", "oral"],
+const consonants = {
+    k: { label: "k", type: "stop", place: "velar", voicing: "vcls", nasal: "oral"},
     var g = new Consonant("g", "stop", "velar", "vcd","oral"],
     var t = new Consonant("t", "stop", "alveolar", "vcls", "oral"],
     var d = new Consonant("d", "stop", "alveolar", "vcd", "oral"],
@@ -78,16 +63,16 @@ var consonants = {
 /* Returns array of vowels which harmonize
     harmType: type of vowel harmony (front, round, height)
     v: list of vowels selected by user
-    initVowel: first vowel in the word whose properties subsequent vowels must match
+    initVowel: (string) first vowel in the word whose properties subsequent vowels must match
 */
 function harmonicVowels(harmType, v, initVowel) {
     // sets feature that other vowels filtered by
-    let feature = initVowel.harmType
+    let feature = vowels[initVowel][harmType]
     let harmVowels = new Set()
     for (let i = 0, i < v.length, i++) {
       // ex. if VOWEL.front == "front"
-      if (v[i].harmType == feature) {
-          v.add(v[i].label)
+      if (vowels[v[i]][harmType] == feature) {
+          harmVowels.add(v[i])
       } 
     }
     return harmVowels   
