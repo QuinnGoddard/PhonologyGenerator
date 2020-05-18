@@ -189,13 +189,13 @@ function makeWord(selectV, selectC, length, syll, harm, nasal, palatalization) {
       // if not divisible by 3, initial syllable is V
       } else if (length%3 == 1) {
         word += randomPhone(workingVowels)
-        for (let i = 0; i < length/3; i++) {
+        for (let i = 0; i < (length-1)/3; i++) {
           word+=makeSyll("CVC", selectC, workingVowels, nasal, palatalization)
         }
       // if not divisible by 3, initial syllable is CV
       } else {
         word+=makeSyll("CV", selectC, workingVowels, nasal)
-        for (let i = 0; i < length/3; i++) {
+        for (let i = 0; i < (length-2)/3; i++) {
           word+=makeSyll("CVC", selectC, workingVowels, nasal, palatalization)
         }
       }
