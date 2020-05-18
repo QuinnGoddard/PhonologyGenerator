@@ -69,7 +69,7 @@ function harmonicVowels(harmType, v, initVowel) {
     // sets feature that other vowels filtered by
     let feature = vowels[initVowel][harmType]
     let harmVowels = new Set()
-    for (let i = 0, i < v.length, i++) {
+    for (let i = 0; i < v.length; i++) {
       // ex. if VOWEL.front == "front"
       if (vowels[v[i]][harmType] == feature) {
           harmVowels.add(v[i])
