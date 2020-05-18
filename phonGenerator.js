@@ -127,33 +127,23 @@ function makeSyll(syll, c, v, nasal, palatalization) {
     let onset = ""
     let nucleus = ""
     let syllable = ""
-    if (syll == "CV") {
-        // generate onset
-        onset = randomPhone(c)      
-        //generate nucleus
-        nucleus = randomPhone(v)
-        if (palatalization=="palatalization" && nucleus=="i" && onset=="k") {
-           syllable += "t͡ʃ"
-        } else {
-          syllable += onset
-        }
-        if (nasal == "nasal" && consonants[onset].nasal == "nasal") {
-          syllable += vowels[nucleus].nasal
-        } else {
-          syllable += nucleus
-        }
-    } else if (syll == "CVC") {
-       syllable += randomPhone(c)
-       syllable += randomPhone(v)
-       syllable += randomPhone(c)
-    } else {
-       syllable += randomPhone(c)
-       syllable += randomPhone(c)
-       syllable += randomPhone(v)
-       syllable += randomPhone(c)
+    // generate onset
+    onset = randomPhone(c)      
+    nucleus = randomPhone(v)
+    if (palatalization=="palatalization" && nucleus=="i" && onset=="k") {
+      syllable += "t͡ʃ"
+     } else {
+       syllable += onset
+     }
+     if (nasal == "nasal" && consonants[onset].nasal == "nasal") {
+        syllable += vowels[nucleus].nasal
+     } else {
+        syllable += nucleus
+     }
+    } if (syll == "CVC") {
+      // add coda if CVC structure
        syllable += randomPhone(c)
     }
-
     return syllable
 }
 
