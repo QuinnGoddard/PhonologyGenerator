@@ -18,9 +18,10 @@ function run(event) {
   var listLength = document.getElementById("numWords").value
   var length = document.getElementById("wordlength").value
   let syll = ""
-  let harm = ""
-  let nasal = ""
-  
+  let harm = "none"
+  let nasal = "none"
+  let palatalization = "none"
+
   // Does user want syllables do have codas?
   if (document.getElementById("coda").checked) {
     syll = "CVC"
@@ -35,16 +36,17 @@ function run(event) {
     harm = "height"
   } else if (document.getElementById("vHarmRound").checked) {
     harm = "round"
-  } else {
-    harm = "none"
   }
   
   // Nasal assimilation
   if (document.getElementById("nasalAssimProg").checked) {
     nasal = "nasal"
-  } else {
-    nasal = "none"
   }
+  
+  // Palatalization
+  if (document.getElementById("palatalization").checked) {
+    palatalization = "palatalization"
+  } 
   wordList(listLength, Array.from(selectedV), Array.from(selectedC), length, syll, harm, nasal)
 }
 
