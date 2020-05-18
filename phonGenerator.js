@@ -18,10 +18,20 @@ function run(event) {
   var listLength = document.getElementById("numWords").value
   var length = document.getElementById("wordlength").value
   let syll = ""
+  let harm = ""
   if (document.getElementById("coda").checked) {
     syll = "CVC"
   } else {
     syll = "CV"
+  }
+  if (document.getElementById("vHarmFront").checked) {
+    harm = "front"
+  } else if (document.getElementById("vHarmHeight").checked) {
+    harm = "height"
+  } else if (document.getElementById("vHarmRound").checked) {
+    harm = "round"
+  } else {
+    harm = "none"
   }
   wordList(listLength, Array.from(selectedV), Array.from(selectedC), length, syll, harm)
 }
@@ -124,40 +134,47 @@ function makeSyll(syll, c, v) {
     length: length of word (number of phonemes in word)
     syll: CV or CVC
 */
-function makeWord(selectV, selectC, length, syll) {
-    //var phonemes = selectV.concat(selectC);
+function makeWord(selectV, selectC, length, syll, harm) {
     let word = ""
-    let phone = ""
+    let initVowel = ""
+    let workingVowels = []
+    
+    if harm != "none" {
+      initVowel = randomPhone(selectV)
+      workingVowels = harmonicVowels(harm, selectV, initVowel)
+    } else {
+      workingVowels = selectV
+    }
     
     // make a word with (C)V syllables
     if (syll == "CV") {
       if (length%2 == 0) {
         for (let i = 0; i < length/2; i++) {
-          word+=makeSyll("CV", selectC, selectV)
+          word+=makeSyll("CV", selectC, workingVowels)
         }
       } else {
         word += randomPhone(selectV)
         for (let i = 0; i < (length-1)/2; i++) {
-          word+=makeSyll("CV", selectC, selectV)
+          word+=makeSyll("CV", selectC, workingVowels)
         }
       }
     // make a word with CVC syllables
     } else if (syll == "CVC") {
       if (length%3 == 0) {
         for (let i = 0; i < length/3; i++) {
-          word+=makeSyll("CVC", selectC, selectV)
+          word+=makeSyll("CVC", selectC, workingVowels)
         }
       // if not divisible by 3, initial syllable is V
       } else if (length%3 == 1) {
         word += randomPhone(selectV)
         for (let i = 0; i < length/3; i++) {
-          word+=makeSyll("CVC", selectC, selectV)
+          word+=makeSyll("CVC", selectC, workingVowels)
         }
       // if not divisible by 3, initial syllable is CV
       } else {
-        word+=makeSyll("CV", selectC, selectV)
+        word+=makeSyll("CV", selectC, workingVowels)
         for (let i = 0; i < length/3; i++) {
-          word+=makeSyll("CVC", selectC, selectV)
+          word+=makeSyll("CVC", selectC, workingVowels)
         }
       }
     }
