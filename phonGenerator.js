@@ -125,8 +125,8 @@ function makeWord(selectV, selectC, length, syll, harm) {
     let workingVowels = []
     
     if (harm != "none") {
-      initVowel = randomPhone(workingVowels)
       workingVowels = harmonicVowels(harm, selectV, initVowel)
+      initVowel = randomPhone(workingVowels)
     } else {
       workingVowels = selectV
     }
@@ -138,7 +138,7 @@ function makeWord(selectV, selectC, length, syll, harm) {
           word+=makeSyll("CV", selectC, workingVowels)
         }
       } else {
-        word += randomPhone(selectV)
+        word += randomPhone(workingVowels)
         for (let i = 0; i < (length-1)/2; i++) {
           word+=makeSyll("CV", selectC, workingVowels)
         }
@@ -151,7 +151,7 @@ function makeWord(selectV, selectC, length, syll, harm) {
         }
       // if not divisible by 3, initial syllable is V
       } else if (length%3 == 1) {
-        word += randomPhone(selectV)
+        word += randomPhone(workingVowels)
         for (let i = 0; i < length/3; i++) {
           word+=makeSyll("CVC", selectC, workingVowels)
         }
