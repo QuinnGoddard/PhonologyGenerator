@@ -80,6 +80,8 @@ const consonants = {
     ŋ: { label: "ŋ", type: "stop", place: "velar", voicing: "vcd", nasal: "nasal"},
     s: { label: "s", type: "fricative", place: "alveolar", voicing: "vcls", nasal: "oral"},
     z: { label: "z", type: "fricative", place: "alveolar", voicing: "vcd", nasal: "oral"},
+    ʃ: { label: "ʃ", type: "fricative", place: "palatal", voicing: "vcls", nasal: "oral"},
+    ʒ: { label: "ʒ", type: "fricative", place: "palatal", voicing: "vcd", nasal: "oral"},
     f: { label: "f", type: "fricative", place: "labiodental", voicing: "vcls", nasal: "oral"},
     v: { label: "v", type: "fricative", place: "labiodental", voicing: "vcd", nasal: "oral"},
     θ: { label: "θ", type: "fricative", place: "interdental", voicing: "vcls", nasal: "oral"},
