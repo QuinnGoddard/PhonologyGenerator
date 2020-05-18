@@ -174,31 +174,31 @@ function makeWord(selectV, selectC, length, syll, harm, nasal) {
     if (syll == "CV") {
       if (length%2 == 0) {
         for (let i = 0; i < length/2; i++) {
-          word+=makeSyll("CV", selectC, workingVowels)
+          word+=makeSyll("CV", selectC, workingVowels, nasal)
         }
       } else {
         word += randomPhone(workingVowels)
         for (let i = 0; i < (length-1)/2; i++) {
-          word+=makeSyll("CV", selectC, workingVowels)
+          word+=makeSyll("CV", selectC, workingVowels, nasal)
         }
       }
     // make a word with CVC syllables
     } else if (syll == "CVC") {
       if (length%3 == 0) {
         for (let i = 0; i < length/3; i++) {
-          word+=makeSyll("CVC", selectC, workingVowels)
+          word+=makeSyll("CVC", selectC, workingVowels, nasal)
         }
       // if not divisible by 3, initial syllable is V
       } else if (length%3 == 1) {
         word += randomPhone(workingVowels)
         for (let i = 0; i < length/3; i++) {
-          word+=makeSyll("CVC", selectC, workingVowels)
+          word+=makeSyll("CVC", selectC, workingVowels, nasal)
         }
       // if not divisible by 3, initial syllable is CV
       } else {
-        word+=makeSyll("CV", selectC, workingVowels)
+        word+=makeSyll("CV", selectC, workingVowels, nasal)
         for (let i = 0; i < length/3; i++) {
-          word+=makeSyll("CVC", selectC, workingVowels)
+          word+=makeSyll("CVC", selectC, workingVowels, nasal)
         }
       }
     }
