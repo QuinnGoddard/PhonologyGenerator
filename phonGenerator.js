@@ -19,11 +19,16 @@ function run(event) {
   var length = document.getElementById("wordlength").value
   let syll = ""
   let harm = ""
+  let nasal = ""
+  
+  // Does user want syllables do have codas?
   if (document.getElementById("coda").checked) {
     syll = "CVC"
   } else {
     syll = "CV"
   }
+  
+  // Vowel harmony type
   if (document.getElementById("vHarmFront").checked) {
     harm = "front"
   } else if (document.getElementById("vHarmHeight").checked) {
@@ -33,7 +38,14 @@ function run(event) {
   } else {
     harm = "none"
   }
-  wordList(listLength, Array.from(selectedV), Array.from(selectedC), length, syll, harm)
+  
+  // Nasal assimilation
+  if (document.getElementById("nasalAssimProg").checked) {
+    nasal = "nasal"
+  } else {
+    nasal = "none"
+  }
+  wordList(listLength, Array.from(selectedV), Array.from(selectedC), length, syll, harm, nasal)
 }
 
 
@@ -55,20 +67,25 @@ const vowels = {
   ɒ: { label:"ɒ", height: "low", front:"back", round: "round", nasal: "ɒ̃" },
 }
 
-/*
+
 const consonants = {
     k: { label: "k", type: "stop", place: "velar", voicing: "vcls", nasal: "oral"},
-    var g = new Consonant("g", "stop", "velar", "vcd","oral"],
-    var t = new Consonant("t", "stop", "alveolar", "vcls", "oral"],
-    var d = new Consonant("d", "stop", "alveolar", "vcd", "oral"],
-    var p = new Consonant("p", "stop", "bilabial", "vcls", "oral"],
-    var b = new Consonant("b", "stop", "bilabial", "vcd", "oral"],
-    var m = new Consonant("m", "stop", "bilabial", "vcd", "nasal"],
-    var n = new Consonant("n", "stop", "alveolar", "vcd", "nasal"],
-    var s = new Consonant("s", "fricative", "alveolar", "vcls", "oral"],
-    var z = new Consonant("z", "fricative", "alveolar", "vcd", "oral"],
+    g: { label: "g", type: "stop", place: "velar", voicing: "vcd", nasal: "oral"},
+    p: { label: "p", type: "stop", place: "bilabial", voicing: "vcls", nasal: "oral"},
+    b: { label: "b", type: "stop", place: "bilabial", voicing: "vcd", nasal: "oral"},
+    t: { label: "t", type: "stop", place: "alveolar", voicing: "vcls", nasal: "oral"},
+    d: { label: "d", type: "stop", place: "alveolar", voicing: "vcd", nasal: "oral"},
+    m: { label: "m", type: "stop", place: "bilabial", voicing: "vcd", nasal: "nasal"},
+    n: { label: "n", type: "stop", place: "alveolar", voicing: "vcd", nasal: "nasal"},
+    ŋ: { label: "ŋ", type: "stop", place: "velar", voicing: "vcd", nasal: "nasal"},
+    s: { label: "s", type: "fricative", place: "alveolar", voicing: "vcls", nasal: "oral"},
+    z: { label: "z", type: "fricative", place: "alveolar", voicing: "vcd", nasal: "oral"},
+    f: { label: "f", type: "fricative", place: "labiodental", voicing: "vcls", nasal: "oral"},
+    v: { label: "v", type: "fricative", place: "labiodental", voicing: "vcd", nasal: "oral"},
+    θ: { label: "θ", type: "fricative", place: "interdental", voicing: "vcls", nasal: "oral"},
+    ð: { label: "ð", type: "fricative", place: "interdental", voicing: "vcd", nasal: "oral"},
 };
-*/
+
 /* Returns array of vowels which harmonize
     harmType: type of vowel harmony (front, round, height)
     v: list of vowels selected by user
@@ -102,11 +119,22 @@ function randomPhone(phonemes) {
     c: set of consonants
     v: set of vowels
 */
-function makeSyll(syll, c, v) {
+function makeSyll(syll, c, v, nasal) {
+    let onset = ""
+    let nucleus = ""
     let syllable = ""
     if (syll == "CV") {
-       syllable += randomPhone(c)
-       syllable += randomPhone(v)
+        // generate onset
+        onset = randomPhone(c)
+        syllable += onset
+      
+        //generate nucleus
+        nucleus = randomPhone(v)
+        if (nasal == "nasal" && consonants[onset].nasal == "nasal") {
+          syllable += vowels[nucleus].nasal
+        } else {
+          syllable += nucleus
+        }
     } else if (syll == "CVC") {
        syllable += randomPhone(c)
        syllable += randomPhone(v)
@@ -128,7 +156,7 @@ function makeSyll(syll, c, v) {
     length: length of word (number of phonemes in word)
     syll: CV or CVC
 */
-function makeWord(selectV, selectC, length, syll, harm) {
+function makeWord(selectV, selectC, length, syll, harm, nasal) {
     let word = ""
     let initVowel = ""
     let workingVowels = []
@@ -182,12 +210,13 @@ function makeWord(selectV, selectC, length, syll, harm) {
     length: length of word (number of phonemes in word)
     syll: syllable structure (either CV, CVC, or CCVCC)
     harm: vowel harmony (none, front, round, height)
+    nasal: none or progressive
 */
-function wordList(n, selectV, selectC, length, syll, harm) {
+function wordList(n, selectV, selectC, length, syll, harm, nasal) {
   var wordList = [];
   let word = "";
   for (let i = 0; i < n; i++) {
-    word = makeWord(selectV, selectC, length, syll, harm);
+    word = makeWord(selectV, selectC, length, syll, harm, nasal);
     wordList.push(word);
   }
   let listHTML = ""
