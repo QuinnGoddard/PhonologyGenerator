@@ -68,11 +68,11 @@ const consonants = {
 function harmonicVowels(harmType, v, initVowel) {
     // sets feature that other vowels filtered by
     let feature = vowels[initVowel][harmType]
-    let harmVowels = new Set()
+    let harmVowels = []
     for (let i = 0; i < v.length; i++) {
       // ex. if VOWEL.front == "front"
       if (vowels[v[i]][harmType] == feature) {
-          harmVowels.add(v[i])
+          harmVowels.push(v[i])
       } 
     }
     return harmVowels   
