@@ -141,7 +141,7 @@ function wordList(n, selectV, selectC, length, syll) {
   var wordList = [];
   let word = "";
   for (let i = 0; i < n; i++) {
-    word = makeWord(selectV, selectC, length);
+    word = makeWord(selectV, selectC, length, syll);
     wordList.push(word);
   }
   let listHTML = ""
