@@ -38,12 +38,21 @@ function run(event) {
 
 
 const vowels = {
-  a: { label: "a", height: "low", front: "front", round: "unround" },
-  i: { label:"i", height: "high", front: "front", round: "unround" },
-  y: { label:"y", height: "high", front: "front", round: "round" },
-  o: { label:"o", height: "mid", front: "back", round: "round" },
-  u: { label:"u", height: "high",front: "back", round: "round" },
-  e: { label:"e", height: "mid", front:"front", round: "unround" }  
+  a: { label: "a", height: "low", front: "front", round: "unround", nasal: "ã" },
+  i: { label:"i", height: "high", front: "front", round: "unround",  nasal: "ĩ" },
+  y: { label:"y", height: "high", front: "front", round: "round", nasal: "ỹ" },
+  o: { label:"o", height: "mid", front: "back", round: "round", nasal: "õ" },
+  u: { label:"u", height: "high",front: "back", round: "round", nasal: "ũ" },
+  e: { label:"e", height: "mid", front:"front", round: "unround", nasal: "ẽ" },  
+  ɑ: { label:"ɑ", height: "low", front:"back", round: "unround", nasal: "ɑ̃" }, 
+  æ: { label:"æ", height: "low", front:"front", round: "unround", nasal: "æ̃" }, 
+  ɪ: { label:"ɪ", height: "high", front:"front", round: "unround", nasal: "ɪ̃" }, 
+  ɛ: { label:"ɛ", height: "mid", front:"front", round: "unround", nasal: "ɛ̃" }, 
+  ɔ: { label:"ɔ", height: "mid", front:"back", round: "round", nasal: "ɔ̃" }, 
+  ʏ: { label:"ʏ", height: "high", front:"front", round: "round", nasal: "ʏ̃" },
+  œ: { label:"œ", height: "mid", front:"front", round: "round", nasal: "œ̃" },
+  ø: { label:"ø", height: "mid", front:"front", round: "round", nasal: "ø̃" },
+  ɒ: { label:"ɒ", height: "low", front:"back", round: "round", nasal: "ɒ̃" },
 }
 
 /*
