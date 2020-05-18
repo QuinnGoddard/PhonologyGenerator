@@ -22,7 +22,7 @@ function run(event) {
   var listLength = document.getElementById("numWords").value
   var length = document.getElementById("wordlength").value
   let syll = ""
-  if (coda) {
+  if (coda == 1) {
     syll = "CVC"
   } else {
     syll = "CV"
