@@ -54,7 +54,7 @@ var consonants = {
 /* Select a random phoneme from a set of phonemes */
 function randomPhone(phones) {
     let phone = ""
-    let num = Math.floor((Math.random() * phonemes.length))
+    let num = Math.floor((Math.random() * phones.length))
     phone = phones[num]
     return phone
 }
