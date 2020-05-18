@@ -23,29 +23,64 @@ function run(event) {
   } else {
     syll = "CV"
   }
-  wordList(listLength, Array.from(selectedV), Array.from(selectedC), length, syll)
+  wordList(listLength, Array.from(selectedV), Array.from(selectedC), length, syll, harm)
 }
 
-/* var vowels = {
-    "a": ["low"],
-    "i": ["high"],
-    "o": ["mid", "round"],
-    "u": ["high", "round"],
-    "e": ["mid"],
-    "y": ["high", "round"]
-};
+// Constructor for vowels
+function Vowel(label, height, front, round) {
+    this.label = label;
+    this.height = height;
+    this.front = front;
+    this.round = round;
+}
+
+// Constructor for consonants
+function Consonant(label, type, place, voicing, nasality) {
+    this.label = label;
+    this.type = type;
+    this.place = place;
+    this.voicing = voicing;
+    this.nasality = nasality;
+}
+
+var vowels = [
+    var a = new Vowel("a", "low", "front", "unround"),
+    var i = new Vowel("i", "high", "front", "unround"),
+    var y = new Vowel("y", "high", "front", "round"),
+    var o = new Vowel("o", "mid", "back", "round"),
+    var u = new Vowel("u", "high", "back", "round"),
+    var e = new Vowel("e", "mid", "front", "unround")   
+];
 
 var consonants = {
-    "k": ["velar", "stop"],
-    "g": ["velar", "voiced", "stop"],
-    "p": ["bilabial","stop"],
-    "b": ["bilabial", "voiced","stop"],
-    "t": ["alveolar", "stop"],
-    "d": ["alveolar", "voiced","stop"]
-    "s": ["alveolar", "fricative"],
-    "z": ["alveolar", "voiced","fricative"]
+    var k = new Consonant("k", "stop", "velar", "vcls", "oral"],
+    var g = new Consonant("g", "stop", "velar", "vcd","oral"],
+    var t = new Consonant("t", "stop", "alveolar", "vcls", "oral"],
+    var d = new Consonant("d", "stop", "alveolar", "vcd", "oral"],
+    var p = new Consonant("p", "stop", "bilabial", "vcls", "oral"],
+    var b = new Consonant("b", "stop", "bilabial", "vcd", "oral"],
+    var m = new Consonant("m", "stop", "bilabial", "vcd", "nasal"],
+    var n = new Consonant("n", "stop", "alveolar", "vcd", "nasal"],
+    var s = new Consonant("s", "fricative", "alveolar", "vcls", "oral"],
+    var z = new Consonant("z", "fricative", "alveolar", "vcd", "oral"],
 };
+
+/* Returns array of vowels which harmonize
+    harmType: type of vowel harmony (front, round, height)
+    v: list of vowels selected by user
+    initVowel: first vowel in the word whose properties subsequent vowels must match
 */
+function harmonicVowels(harmType, v, initVowel) {
+    if (harmType == "front") {
+      
+    } else if (harmType=="height") {
+      
+    } else {
+      
+    }
+  
+}
+
 
 /* Select a random phoneme from a set of phonemes */
 function randomPhone(phonemes) {
@@ -133,12 +168,13 @@ function makeWord(selectV, selectC, length, syll) {
     selectC: array of selected consonants
     length: length of word (number of phonemes in word)
     syll: syllable structure (either CV, CVC, or CCVCC)
+    harm: vowel harmony (none, front, round, height)
 */
-function wordList(n, selectV, selectC, length, syll) {
+function wordList(n, selectV, selectC, length, syll, harm) {
   var wordList = [];
   let word = "";
   for (let i = 0; i < n; i++) {
-    word = makeWord(selectV, selectC, length, syll);
+    word = makeWord(selectV, selectC, length, syll, harm);
     wordList.push(word);
   }
   let listHTML = ""
